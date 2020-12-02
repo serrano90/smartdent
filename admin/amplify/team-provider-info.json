@@ -1,0 +1,61 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-insurancesmartdent-dev-234642-authRole",
+      "UnauthRoleArn": "arn:aws:iam::083941353014:role/amplify-insurancesmartdent-dev-234642-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::083941353014:role/amplify-insurancesmartdent-dev-234642-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-insurancesmartdent-dev-234642-deployment",
+      "UnauthRoleName": "amplify-insurancesmartdent-dev-234642-unauthRole",
+      "StackName": "amplify-insurancesmartdent-dev-234642",
+      "StackId": "arn:aws:cloudformation:us-east-1:083941353014:stack/amplify-insurancesmartdent-dev-234642/36fc1750-3390-11eb-ae31-12a640cb526e",
+      "AmplifyAppId": "d4ehb2xwu51m"
+    },
+    "categories": {
+      "auth": {
+        "insurancesmartdent": {}
+      },
+      "function": {
+        "insurancesmartdent": {
+          "APP_NAME": "BFF_SMARTDENT",
+          "APP_URL": "https://j09tgcxky2.execute-api.us-east-1.amazonaws.com/dev",
+          "CORS_URL": "https://d25y13lqu4mteu.cloudfront.net",
+          "FLOWCL_API_KEY": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
+          "FLOWCL_SECRET_KEY": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
+          "FLOWCL_API_URL": "https://sandbox.flow.cl/api",
+          "FLOWCL_BASE_URL": "https://d25y13lqu4mteu.cloudfront.net/subcriptions",
+          "FLOWCL_BASE_ADMIN_URL": "https://d25y13lqu4mteu.cloudfront.net/admin/customers",
+          "FLOWCL_BASE_URL_THANK_YOU_PAGE": "https://d25y13lqu4mteu.cloudfront.net/admin/custome",
+          "FLOWCL_REGISTER_BY_PAGE": 10,
+          "MAIL_FROM": "devathandcompany@gmail.com",
+          "MAIL_SUBJECT": "Registre su nueva tarjeta",
+          "SII_SERVICE_URL": "https://siichile.herokuapp.com"
+        }
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-insurancesmartdent-prod-172222-authRole",
+      "UnauthRoleArn": "arn:aws:iam::083941353014:role/amplify-insurancesmartdent-prod-172222-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::083941353014:role/amplify-insurancesmartdent-prod-172222-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-insurancesmartdent-prod-172222-deployment",
+      "UnauthRoleName": "amplify-insurancesmartdent-prod-172222-unauthRole",
+      "StackName": "amplify-insurancesmartdent-prod-172222",
+      "StackId": "arn:aws:cloudformation:us-east-1:083941353014:stack/amplify-insurancesmartdent-prod-172222/dac398b0-34ec-11eb-93aa-0eaa1a5b8293",
+      "AmplifyAppId": "d4ehb2xwu51m"
+    },
+    "categories": {
+      "auth": {
+        "userPoolGroups": {},
+        "insurancesmartdent": {}
+      },
+      "function": {
+        "AdminQueries7a089cab": {},
+        "insurancesmartdent": {},
+        "insurancesmartdentsubscriptionupdatejob": {}
+      }
+    }
+  }
+}

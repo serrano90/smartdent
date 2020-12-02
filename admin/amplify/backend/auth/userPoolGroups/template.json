@@ -1,0 +1,68 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authinsurancesmartdentUserPoolId": {
+            "Type": "String",
+            "Default": "authinsurancesmartdentUserPoolId"
+        },
+        
+        "authinsurancesmartdentAppClientID": {
+            "Type": "String",
+            "Default": "authinsurancesmartdentAppClientID"
+        },
+        "authinsurancesmartdentAppClientIDWeb": {
+            "Type": "String",
+            "Default": "authinsurancesmartdentAppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "AdminGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "Admin",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authinsurancesmartdentUserPoolId"
+              } 
+            }
+        },
+        
+    
+        "ViewerGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "Viewer",
+              "Precedence" : 2,
+              
+              "UserPoolId" : {
+                "Ref": "authinsurancesmartdentUserPoolId"
+              } 
+            }
+        },
+        
+    
+    
+    },
+    
+}

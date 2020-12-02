@@ -1,0 +1,75 @@
+{
+    "paths": [
+        {
+            "name": "/v1/health",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/health"
+        },
+        {
+            "name": "/v1/plans",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/plans"
+        },
+        {
+            "name": "/v1/customers",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/customers"
+        },
+        {
+            "name": "/v1/subscriptions",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/subscriptions"
+        },
+        {
+            "name": "/v1/payments",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/payments"
+        },
+        {
+            "name": "/v1/reports",
+            "lambdaFunction": "insurancesmartdent",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/v1/reports"
+        }
+    ],
+    "resourceName": "insurancesmartdentbff",
+    "apiName": "insurancesmartdentbff",
+    "functionArns": [
+        {
+            "lambdaFunction": "insurancesmartdent"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-insurancesmartdent-dev-234642-authRole",
+        "unAuthRoleName": "amplify-insurancesmartdent-dev-234642-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "insurancesmartdent",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

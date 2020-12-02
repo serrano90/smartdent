@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "storage": {
+      "Customer": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "CardIntent": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
