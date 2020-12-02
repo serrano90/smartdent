@@ -53,7 +53,21 @@
       },
       "function": {
         "AdminQueries7a089cab": {},
-        "insurancesmartdent": {},
+        "insurancesmartdent": {
+          "APP_NAME": "BFF_SMARTDENT",
+          "APP_URL": "https://j09tgcxky2.execute-api.us-east-1.amazonaws.com/dev",
+          "CORS_URL": "https://d25y13lqu4mteu.cloudfront.net",
+          "FLOWCL_API_KEY": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
+          "FLOWCL_SECRET_KEY": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
+          "FLOWCL_API_URL": "https://sandbox.flow.cl/api",
+          "FLOWCL_BASE_URL": "https://d25y13lqu4mteu.cloudfront.net/subcriptions",
+          "FLOWCL_BASE_ADMIN_URL": "https://d25y13lqu4mteu.cloudfront.net/admin/customers",
+          "FLOWCL_BASE_URL_THANK_YOU_PAGE": "https://d25y13lqu4mteu.cloudfront.net/admin/custome",
+          "FLOWCL_REGISTER_BY_PAGE": 10,
+          "MAIL_FROM": "info@segurossmartsalud.cl",
+          "MAIL_SUBJECT": "Registre su nueva tarjeta",
+          "SII_SERVICE_URL": "https://siichile.herokuapp.com"
+        },
         "insurancesmartdentsubscriptionupdatejob": {}
       }
     }
