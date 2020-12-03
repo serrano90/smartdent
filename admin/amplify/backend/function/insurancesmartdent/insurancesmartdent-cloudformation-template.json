@@ -26,7 +26,43 @@
       "Type": "String",
       "Default": "storageCardIntentArn"
     },
-    "appName":  {
+    "appName": {
+      "Type": "String"
+    },
+    "appUrl": {
+      "Type": "String"
+    },
+    "corsUrl": {
+      "Type": "String"
+    },
+    "flowclApiKey": {
+      "Type": "String"
+    },
+    "flowclSecretKey": {
+      "Type": "String"
+    },
+    "flowclApiUrl": {
+      "Type": "String"
+    },
+    "flowclBaseUrl": {
+      "Type": "String"
+    },
+    "flowclBaseAdminUrl": {
+      "Type": "String"
+    },
+    "flowclBaseUrlThankYouPage": {
+      "Type": "String"
+    },
+    "flowclRegisterByPage": {
+      "Type": "Number"
+    },
+    "mailFrom": {
+      "Type": "String"
+    },
+    "mailSubject": {
+      "Type": "String"
+    },
+    "siiServiceUrl": {
       "Type": "String"
     }
   },
@@ -90,14 +126,42 @@
             "APP_NAME": {
               "Ref": "appName"
             },
-            "APP_URL": "https://wayu3cujxh.execute-api.us-west-2.amazonaws.com/dev",
-            "FLOWCL_API_KEY": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
-            "FLOWCL_SECRET_KEY": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
-            "FLOWCL_API_URL": "https://sandbox.flow.cl/api",
-            "FLOWCL_BASE_URL": "https://d25y13lqu4mteu.cloudfront.net/subcriptions",
-            "FLOWCL_BASE_ADMIN_URL": "https://d25y13lqu4mteu.cloudfront.net/admin/customers",
-            "SII_SERVICE_URL": "https://siichile.herokuapp.com",
-            "CORS_URL": "https://d25y13lqu4mteu.cloudfront.net"
+            "APP_URL": {
+              "Ref": "appUrl"
+            },
+            "CORS_URL": {
+              "Ref": "corsUrl"
+            },
+            "FLOWCL_API_KEY": {
+              "Ref": "flowclApiKey"
+            },
+            "FLOWCL_SECRET_KEY": {
+              "Ref": "flowclSecretKey"
+            },
+            "FLOWCL_API_URL": {
+              "Ref": "flowclApiUrl"
+            },
+            "FLOWCL_BASE_URL": {
+              "Ref": "flowclBaseUrl"
+            },
+            "FLOWCL_BASE_ADMIN_URL": {
+              "Ref": "flowclBaseAdminUrl"
+            },
+            "FLOWCL_BASE_URL_THANK_YOU_PAGE": {
+              "Ref": "flowclBaseUrlThankYouPage"
+            },
+            "FLOWCL_REGISTER_BY_PAGE": {
+              "Ref": "flowclRegisterByPage"
+            },
+            "MAIL_FROM": {
+              "Ref": "mailFrom"
+            },
+            "MAIL_SUBJECT": {
+              "Ref": "mailSubject"
+            },
+            "SII_SERVICE_URL": {
+              "Ref": "siiServiceUrl"
+            }
           }
         },
         "Role": {
@@ -111,7 +175,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-insurancesmartdent-dev-234642-deployment",
-          "S3Key": "amplify-builds/insurancesmartdent-666e2f534b5466316857-build.zip"
+          "S3Key": "amplify-builds/insurancesmartdent-457834324e33696a392f-build.zip"
         }
       }
     },
