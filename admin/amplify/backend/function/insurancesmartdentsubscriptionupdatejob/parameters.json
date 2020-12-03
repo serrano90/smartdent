@@ -1,3 +1,6 @@
 {
-  "CloudWatchRule": "cron(0 0 * * ? *)"
+  "CloudWatchRule": "cron(0 0 * * ? *)",
+  "flowclApiKey": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
+  "flowclSecretKey": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
+  "flowclApiUrl": "https://sandbox.flow.cl/api"
 }

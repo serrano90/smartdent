@@ -3,52 +3,42 @@
  */
 
 export default {
-    SUBCRIPTIONS: {
-        path: "/subcriptions",
-        route: "/subcriptions",
-        name: "Subcricciones"
-    },
-    THANKYOU: {
-        path: "/thankyou",
-        route: "/thankyou",
-        name: "Thank You"
-    },
     ADMIN:{
-        path: "/admin"
+        path: "/"
     },
     ADMIN_DASHBOARD: {
         path: "/",
-        route: "/admin",
+        route: "/",
         name: "Dashboard"
     },
     ADMIN_LOGIN: {
         path: "/login",
-        route: "/admin/login",
+        route: "/login",
         name: "Login"
     },
     ADMIN_CHANGE_PASSWORD:  {
         path: "/changePassword",
-        route: "/admin/changePassword",
+        route: "/changePassword",
         name: "Cambio de Contraseña"
     },
     ADMIN_PLANS: {
         path: "/plans",
-        route: "/admin/plans",
+        route: "/plans",
         name: "Planes"
     },
     ADMIN_CUSTOMERS: {
         path: "/customers",
-        route: "/admin/customers",
+        route: "/customers",
         name: "Clientes"
     },
     ADMIN_CUSTOMERS_PAYMENT: {
         path: ":id",
-        route: "/admin/customers/:id",
+        route: "/customers/:id",
         name: "Clientes"
     },
     ADMIN_USERS: {
         path: "/users",
-        route: "/admin/users/:id",
+        route: "/users/:id",
         name: "Usuarios"
     }
 }

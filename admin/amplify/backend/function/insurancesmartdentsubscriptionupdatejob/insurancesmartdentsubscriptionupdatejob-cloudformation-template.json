@@ -17,6 +17,15 @@
     "storageCustomerArn": {
       "Type": "String",
       "Default": "storageCustomerArn"
+    },
+    "flowclApiKey": {
+      "Type": "String"
+    },
+    "flowclSecretKey": {
+      "Type": "String"
+    },
+    "flowclApiUrl": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -69,6 +78,15 @@
             },
             "STORAGE_CUSTOMER_ARN": {
               "Ref": "storageCustomerArn"
+            },
+            "FLOWCL_API_KEY": {
+              "Ref": "flowclApiKey"
+            },
+            "FLOWCL_SECRET_KEY": {
+              "Ref": "flowclSecretKey"
+            },
+            "FLOWCL_API_URL": {
+              "Ref": "flowclApiUrl"
             }
           }
         },

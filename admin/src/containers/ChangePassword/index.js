@@ -6,7 +6,6 @@ import React from "react"
 import {Formik} from "formik"
 import {Auth} from "aws-amplify"
 import Alert from "components/Alert"
-import routers from "utils/routers"
 import {validateNewPassword} from "./validate"
 import NewPassword from "./ChangePassword"
 
