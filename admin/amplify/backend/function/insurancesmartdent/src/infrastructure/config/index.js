@@ -8,6 +8,9 @@ module.exports = {
         url: process.env.APP_URL,
         env: process.env.ENV,
     },
+    aws: {
+        region: process.env.REGION,
+    },
     cors: {
         url: process.env.CORS_URL.split(",")
     },
