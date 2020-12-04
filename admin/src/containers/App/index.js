@@ -41,7 +41,7 @@ const App = () => {
 					path={routers.ADMIN_CHANGE_PASSWORD.path}
 					element={<ChangePasswordPage />}
 				/>
-				<Route path="" element={<NotFoundPage />} />
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</Router>
 	)

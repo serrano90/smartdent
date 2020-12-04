@@ -2,7 +2,7 @@
  *
  */
 import React from "react"
-import {BrowserRouter as Router, Routes, Route, Outlet} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import {createBrowserHistory} from "history"
 import routers from "utils/routers"
 import SubcriptionPage from "containers/SubcriptionPage"
@@ -25,7 +25,7 @@ const App = () => {
 					path={routers.THANKYOU.path}
 					element={<ThankYouPage />}
 				/>
-				<Route path="" element={<NotFoundPage />} />
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</Router>
 	)

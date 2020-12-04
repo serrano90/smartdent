@@ -4,9 +4,9 @@
 
 export default {
     SUBCRIPTIONS: {
-        path: "/subcriptions",
-        route: "/subcriptions",
-        name: "Subcricciones"
+        path: "/subscriptions",
+        route: "/subscriptions",
+        name: "Subscripciones"
     },
     THANKYOU: {
         path: "/thankyou",
