@@ -67,7 +67,7 @@
         "Runtime": "nodejs10.x",
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "amplify-insurancesmartdent-dev-234642-deployment",
+          "S3Bucket": "amplify-insurancesmartdent-prod-172222-deployment",
           "S3Key": "amplify-builds/AdminQueries7a089cab-664a2f48744831706739-build.zip"
         }
       }

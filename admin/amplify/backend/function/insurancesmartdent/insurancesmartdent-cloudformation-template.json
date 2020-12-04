@@ -174,7 +174,7 @@
         "Layers": [],
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "amplify-insurancesmartdent-dev-234642-deployment",
+          "S3Bucket": "amplify-insurancesmartdent-prod-172222-deployment",
           "S3Key": "amplify-builds/insurancesmartdent-504f71694a514f703963-build.zip"
         }
       }
