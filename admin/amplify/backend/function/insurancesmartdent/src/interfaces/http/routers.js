@@ -16,7 +16,7 @@ const report = require("./handlers/reports")
 const router = Router()
 router.use(
 	cors({
-		origin: [config.cors.url],
+		origin: config.cors.url,
 		methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
 		allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Cache-Control"]
 	})

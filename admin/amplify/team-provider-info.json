@@ -18,8 +18,8 @@
       "function": {
         "insurancesmartdent": {
           "appName": "BFF_SMARTDENT",
-          "appUrl": "https://h86e48jutj.execute-api.us-east-1.amazonaws.com/dev",
-          "corsUrl": "https://test-admin.segurossmartsalud.cl",
+          "appUrl": "https://test-api.egurossmartsalud.cl",
+          "corsUrl": "https://test-admin.segurossmartsalud.cl,https://test.segurossmartsalud.cl",
           "flowclApiKey": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
           "flowclSecretKey": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
           "flowclApiUrl": "https://sandbox.flow.cl/api",
@@ -55,7 +55,7 @@
         "AdminQueries7a089cab": {},
         "insurancesmartdent": {
           "appName": "BFF_SMARTDENT",
-          "appUrl": "https://test-api.segurossmartsalud.cl",
+          "appUrl": "https://test.segurossmartsalud.cl",
           "corsUrl": "https://d25y13lqu4mteu.cloudfront.net",
           "flowclApiKey": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
           "flowclSecretKey": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",

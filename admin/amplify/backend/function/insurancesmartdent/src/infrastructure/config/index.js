@@ -9,7 +9,7 @@ module.exports = {
         env: process.env.ENV,
     },
     cors: {
-        url: process.env.CORS_URL
+        url: process.env.CORS_URL.split(",")
     },
     database: {
         region: process.env.TABLE_REGION,
