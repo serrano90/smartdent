@@ -15,7 +15,7 @@ class CustomerRepository {
 			"Customer" +
 			(config.app.env && config.app.env !== "NONE"
 				? "-" + (config.app.env === "local" ? "dev" : config.app.env)
-				: "")
+				: config.app.env)
 		this.tableName = tableName
 	}
 

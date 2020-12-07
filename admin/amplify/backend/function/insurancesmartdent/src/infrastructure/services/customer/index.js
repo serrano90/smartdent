@@ -78,7 +78,7 @@ class CustomerHTTPService {
 					arr.push(toCustomerEntityBasicData(item))
 				})
 			}
-
+			
 			return {
 				data: arr,
 				...transformPaginations(resp.total, page)	

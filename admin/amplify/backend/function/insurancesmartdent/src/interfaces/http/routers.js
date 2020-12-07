@@ -5,7 +5,7 @@ const compression = require("compression")
 const awsServerlessExpressMiddleware = require("aws-serverless-express/middleware")
 const container = require("../../infrastructure/di")
 const config = container.resolve("config")
-
+// Declare Handlers
 const health = require("./handlers/health")
 const plans = require("./handlers/plans")
 const customers = require("./handlers/customer")
@@ -14,15 +14,16 @@ const subcriptions = require("./handlers/subscription")
 const report = require("./handlers/reports")
 
 const router = Router()
+console.log(config.cors.url)
 router.use(
 	cors({
 		origin: config.cors.url,
 		methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
-		allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Cache-Control"]
+		allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Cache-Control", "Accept-Encoding"]
 	})
 )
 router.use(bodyParser.json())
-router.use(compression())
+//router.use(compression())
 router.use(awsServerlessExpressMiddleware.eventContext())
 
 const v1 = Router()
