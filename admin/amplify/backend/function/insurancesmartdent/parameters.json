@@ -1,15 +1,16 @@
 {
   "appName": "BFF_SMARTDENT",
-  "appUrl": "https://h86e48jutj.execute-api.us-east-1.amazonaws.com/dev",
-  "corsUrl": "https://test-admin.segurossmartsalud.cl",
+  "appUrl": "https://test-api.segurossmartsalud.cl",
+  "corsUrl": "https://test-admin.segurossmartsalud.cl,https://test.admin.segurossmartsalud.cl",
   "flowclApiKey": "2EF85C04-7B5E-4112-B733-1L736B1165C5",
   "flowclSecretKey": "9d41aa46a1fd869c8a966583e6f0f54ef8e7056f",
   "flowclApiUrl": "https://sandbox.flow.cl/api",
-  "flowclBaseUrl": "https://test.segurossmartsalud.cl/subcriptions",
+  "flowclBaseUrl": "https://test.segurossmartsalud.cl/subscriptions",
   "flowclBaseAdminUrl": "https://test-admin.segurossmartsalud.cl/customers",
   "flowclBaseUrlThankYouPage": "https://test.segurossmartsalud.cl/thankyou",
   "flowclRegisterByPage": 10,
-  "mailFrom": "info@segurossmartsalud.cl",
+  "mailFrom": "no-reply@segurossmartsalud.cl",
   "mailSubject": "Registre su nueva tarjeta",
+  "tableRegion": "us-east-1",
   "siiServiceUrl": "https://siichile.herokuapp.com"
 }

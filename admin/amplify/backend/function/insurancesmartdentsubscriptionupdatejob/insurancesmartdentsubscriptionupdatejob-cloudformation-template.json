@@ -98,7 +98,7 @@
         },
         "Runtime": "nodejs12.x",
         "Layers": [],
-        "Timeout": "25",
+        "Timeout": "900",
         "Code": {
           "S3Bucket": "amplify-insurancesmartdent-dev-234642-deployment",
           "S3Key": "amplify-builds/insurancesmartdentsubscriptionupdatejob-68575470463172697243-build.zip"

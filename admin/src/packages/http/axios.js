@@ -15,7 +15,7 @@ export default class AxiosService {
 				headers: {
 					"Cache-Control": "no-cache",
 					"Content-Type": "application/json",
-					Accept: "application/json"
+					Accept: "application/json",
 				}
 			})
 			instance.defaults.headers.post["Content-Type"] = "application/json"

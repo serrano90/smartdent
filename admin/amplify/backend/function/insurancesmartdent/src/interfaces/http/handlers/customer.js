@@ -74,9 +74,10 @@ router.get("/", function (req, res) {
 	customerService
 		.getAll(req.query.filter, req.query.page, req.query.status)
 		.then((data) => {
-			res.status(200).json(data)
+			res.json(data)
 		})
 		.catch((error) => {
+			console.log(error.message)
 			res.json({
 				type: error.type,
 				message: error.message
@@ -94,6 +95,7 @@ router.get("/:id", function (req, res) {
 			res.status(200).json(data)
 		})
 		.catch((error) => {
+			res.status(500)
 			res.json({
 				type: error.type,
 				message: error.message
