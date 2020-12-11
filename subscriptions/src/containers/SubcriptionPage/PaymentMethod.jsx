@@ -47,7 +47,14 @@ export default function () {
 				})
 				dispatchStepper({type: NEXT_STEP})
 			} catch (error) {
-				setError(error.response.data)
+				console.log(error.response.data)
+				setError({
+					message: "La tarjeta ha sido rechazada"
+				})
+				dispatchSubcription({
+					type: ADD_PAYMENT_TOKEN,
+					token: ""
+				})
 			}
 		}
 	}

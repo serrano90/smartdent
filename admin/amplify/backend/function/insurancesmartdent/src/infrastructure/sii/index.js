@@ -16,7 +16,7 @@ class SIIClientService {
         this.client = client
     }
     
-    async validateRut(rut, name) {
+    async validateRut(rut, fullName) {
         try {
             const resp = await this.client.get("/consulta", {
                 params: {
@@ -27,11 +27,12 @@ class SIIClientService {
             console.log(data)
             if (data.error && data.error === "Rut invalido") {
                 return false
-            } else {
-                if (data.razon_social.toLowerCase() !== name.toLowerCase()) {
-                    return false
-                }
             }
+            // } else {
+            //     if (data.razon_social.toLowerCase() !== fullName.toLowerCase()) {
+            //         return false
+            //     }
+            // }
             return true
         }catch(error) {
             console.log(error)
