@@ -4,7 +4,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import Alert from "components/Alert"
 import PriceCard from "components/PriceCard"
+import Loading from "components/Loading"
 import useSubcription from "hooks/useSubcription"
 import useStepper from "hooks/useStepper"
 import {ADD_PLAN} from "consts/subcriptions"
@@ -17,6 +19,8 @@ const PlanInfo = () => {
 	const [stateSubcription, dispatchSubcription] = useSubcription()
 	const [stepState, dispatchStepper] = useStepper()
 	const [plans, setPlans] = React.useState([])
+	const [isLoading, setIsLoading] = React.useState(true)
+	const [error, setError] = React.useState()
 
 	React.useEffect(() => {
 		loadPlans()
@@ -31,25 +35,40 @@ const PlanInfo = () => {
 	}
 
 	const loadPlans = async () => {
+		setIsLoading(true)
+		setError()
 		try {
 			const resp = await planService.getPlans()
 			setPlans(resp.data)
 		} catch (ex) {
 			console.log(ex)
+			setError("No se han encontrado planes activos")
 		}
+		setIsLoading(false)
 	}
 
 	return (
 		<>
 			<div className="row justify-content-center">
-				{plans.map((card, idx) => (
-					<PriceCard
-						{...card}
-						handleSelectPlan={handleSelectPlan}
-						planIdSelected={stateSubcription.planId}
-						key={idx}
-					/>
-				))}
+				<Loading loading={isLoading} />
+				{error && error !== null ? (
+					<div className="row justify-content-center pt-2 mb-7">
+						<div className="col-12 mb-3">
+							<Alert type="danger" message={error} />
+						</div>
+					</div>
+				) : (
+					<>
+						{plans.map((card, idx) => (
+							<PriceCard
+								{...card}
+								handleSelectPlan={handleSelectPlan}
+								planIdSelected={stateSubcription.planId}
+								key={idx}
+							/>
+						))}
+					</>
+				)}	
 			</div>
 			<hr className="mt-4" />
 			<div className="d-flex justify-content-around">

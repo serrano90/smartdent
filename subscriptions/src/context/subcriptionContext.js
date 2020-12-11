@@ -16,6 +16,8 @@ import {
 } from "consts/subcriptions"
 import {useStorageReducer} from "react-storage-hooks"
 
+const ttl = 1*60*60*1000
+
 const initialState = {
 	error: null,
 	loading: false,
@@ -40,7 +42,8 @@ const initialState = {
 	subcriptionId: "",
 	customerId: "",
 	planId: "",
-	token: ""
+	token: "",
+	expiry: (new Date()).getTime() + ttl
 }
 
 function reducer(state, action) {
@@ -49,7 +52,7 @@ function reducer(state, action) {
 			return {
 				...state,
 				planId: action.planId,
-				plan: action.plan
+				plan: action.plan,
 			}
 		case ADD_CUSTOMER:
 			return {
@@ -94,7 +97,8 @@ function reducer(state, action) {
 					currency: ""
 				},
 				planId: "",
-				token: ""
+				token: "",
+				expiry: (new Date()).getTime() + ttl
 			}
 		case ERROR:
 			return {
