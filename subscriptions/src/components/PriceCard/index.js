@@ -27,7 +27,7 @@ const PriceCard = ({
 
 	return (
 		<div className="col-12 col-lg-6 col-md-6 col-xl-4">
-			<div className={"card " + (planIdSelected && planId === planIdSelected ? "border-info border-3" : "border-dark" ) + " shadow-lg mb-3 mt-4"}>
+			<div className={"card " + (planIdSelected && planId === planIdSelected ? "border-info border-4" : "border-dark" ) + " shadow-lg mb-3 mt-4"}>
 				<div className="card-body pt-5 px-sd-4 px-md-4 px-xl-4">
 					<div className="text-center mb-4">
 						<div className="mb-4">

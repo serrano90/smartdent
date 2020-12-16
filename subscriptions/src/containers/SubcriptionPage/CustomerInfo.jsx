@@ -74,7 +74,10 @@ export default function () {
 						<div className="row justify-content-center">
 							<div className="col-6 col-md-8 col-xs-12">
 								<div className="mb-3">
-									<label>RUT</label>
+									<label>
+										RUT
+										<span class="small text-dark">{"  "}(Ej. 1111111-1)</span>
+									</label>
 									<input
 										type="text"
 										name="rut"
@@ -92,7 +95,10 @@ export default function () {
 									)}
 								</div>
 								<div className="mb-3">
-									<label>Nombre</label>
+									<label>
+										Nombre
+										<span class="small text-dark">{"  "}(Ej. Pepe)</span>
+									</label>
 									<input
 										type="text"
 										name="name"
@@ -110,7 +116,10 @@ export default function () {
 									)}
 								</div>
 								<div className="mb-3">
-									<label>Apellidos</label>
+									<label>
+										Apellidos
+										<span class="small text-dark">{"  "}(Ej. Sanchez Perez)</span>
+									</label>
 									<input
 										type="text"
 										name="lastName"
@@ -128,7 +137,10 @@ export default function () {
 									)}
 								</div>
 								<div className="mb-3">
-									<label>Email</label>
+									<label>
+										Email
+										<span class="small text-dark">{"  "}(Ej. ejemplo@example.cl)</span>
+									</label>
 									<input
 										type="text"
 										name="email"
