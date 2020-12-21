@@ -13,12 +13,13 @@ const CustomerListItem = ({
 	fullName,
 	email,
 	status,
+	rut,
 	createdAt,
-	cardRegister,
+	data,
 	onClickRow
 }) => {
 	const initialLetter = fullName.charAt(0).toUpperCase()
-
+	console.log(data)
 	return (
 		<tr onClick={onClickRow} role="button">
 			<td>
@@ -37,6 +38,11 @@ const CustomerListItem = ({
 			</td>
 			<td>
 				<span className="font-weight-normal">
+					{rut}
+				</span>
+			</td>
+			<td>
+				<span className="font-weight-normal">
 					{status ? (
 						<Badge text={"Activo"} type={"success"} size="lg"/>
 					) : (
@@ -46,11 +52,12 @@ const CustomerListItem = ({
 			</td>
 			<td>
 				<span className="font-weight-normal">
-					{cardRegister ? (
-						<Badge text={"Registrada"} type={"success"} size="lg"/>
-					) : (
-						<Badge text={"Pendiente"} type={"info"} size="lg"/>
-					)}
+					{data !== null ? data.subscription.plan : "-"}
+				</span>
+			</td>
+			<td>
+				<span className="font-weight-normal">
+					{data !== null && data.plan && data.plan !== null ? data.plan.amount + " " + data.plan.currency : "-"}
 				</span>
 			</td>
 			<td>
@@ -65,8 +72,10 @@ CustomerListItem.prototype = {
 	fullName: PropTypes.string.isRequired,
 	email: PropTypes.string.isRequired,
 	status: PropTypes.number.isRequired,
+	rut: PropTypes.string.isRequired,
 	createdAt: PropTypes.string.isRequired,
-	onClickRow: PropTypes.func
+	onClickRow: PropTypes.func,
+	data: PropTypes.object.isRequired
 }
 
 export default CustomerListItem

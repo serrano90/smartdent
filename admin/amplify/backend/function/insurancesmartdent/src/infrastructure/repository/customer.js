@@ -3,7 +3,7 @@
  */
 
 const {InternalServerErrorException} = require("../error")
-const {toCustomerEntity} = require("./transform")
+const {toCustomerEntity, arrayToCustomerEntityArray} = require("./transform")
 
 class CustomerRepository {
 	/**
@@ -40,6 +40,44 @@ class CustomerRepository {
 		} catch (err) {
 			console.log(err)
 			throw new InternalServerErrorException()
+		}
+	}
+
+	/**
+	 * Get all customer with page
+	 * @param {string} filter
+	 * @param {int} page 
+	 */
+	async readAll(filter, status) {
+		let params = {
+			TableName: this.tableName,
+			Limit: 2000,
+		}
+
+		if (filter && filter != null && filter != "") {
+			params = {
+				...params,
+				KeyConditionExpression: "contains(#name, :filterName) OR contains(#lastName, :filterLastName)",
+				ExpressionAttributeNames: {
+					"#name": "name",
+					"#lastName": "lastName",
+				},
+				ExpressionAttributeValues: {
+					":filterName": filter,
+					":filterLastName": filter
+				}
+			}
+		}
+
+		try {
+			const result = await this.dynamoDBClient.scan(params).promise()
+			if (result.Count == 0) {
+				return []
+			}
+			return arrayToCustomerEntityArray(result.Items)
+		} catch (err) {
+			console.log(err)
+			return []
 		}
 	}
 

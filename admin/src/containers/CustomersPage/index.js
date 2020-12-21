@@ -11,10 +11,13 @@ import DataTable from "containers/Shared/Datatable"
 import CustomerService from "services/api/customer"
 import CustomerListItem from "./CustomerListItem"
 import CustomerModal from "./CustomerModal"
+import PlanService from "services/api/plan"
 import {columnsName, links} from "./constants"
+import {element} from "prop-types"
 
 const CustomersPage = () => {
 	const customerService = new CustomerService()
+	const planService = new PlanService()
 	let navigate = useNavigate()
 	const [isLoading, setIsLoading] = React.useState(false)
 	const [showError, setShowError] = React.useState()
@@ -22,11 +25,22 @@ const CustomersPage = () => {
 	const [result, setResult] = React.useState(null)
 	const [filter, setFilter] = React.useState()
 	const [page, setPage] = React.useState(1)
+	const [plans, setPlans] = React.useState([])
 
 	React.useEffect(() => {
 		checkAuthentication()
+		loadPlans()
 		loadData()
 	}, [filter, page])
+
+	const loadPlans = async () => {
+		try {
+			const resp = await planService.getPlans()
+			setPlans(resp.data)
+		} catch (err) {
+			setPlans([])
+		}
+	}
 
 	const loadData = async () => {
 		setIsLoading(true)
@@ -56,15 +70,24 @@ const CustomersPage = () => {
 		} else {
 			let rows = new Array()
 			result.data.map((item, idx) => {
+				let data = null
+				if (item.subscription !== null) {
+					data = {
+						plan: plans.find((el) => el.planId === item.subscription.planId),
+						subscription: item.subscription
+					}
+				}
+
 				const customer = (
 					<CustomerListItem
 						key={idx}
 						id={item.id}
-						fullName={item.fullName}
+						fullName={item.name + " " + item.lastName}
 						emial={item.email}
+						rut={item.rut}
 						createdAt={item.createdAt}
 						status={item.status}
-						cardRegister={item.haveCardRegister}
+						data={data}
 						onClickRow={() => selectRow(item.id)}
 					/>
 				)
@@ -101,7 +124,8 @@ const CustomersPage = () => {
 								data-toggle="modal"
 								data-target="#modal-new-client"
 							>
-								<FontAwesomeIcon icon={["fas", "plus"]} size="sm" /> Nuevo Cliente
+								<FontAwesomeIcon icon={["fas", "plus"]} size="sm" /> Nuevo
+								Cliente
 							</button>
 						</div>
 						<CustomerModal />

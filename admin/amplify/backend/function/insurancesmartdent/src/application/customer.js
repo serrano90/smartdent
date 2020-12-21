@@ -3,6 +3,7 @@
  */
 const uuid = require("uuid")
 const {Customer} = require("../domain/entity")
+const {transformPaginations} = require("../infrastructure/utils/paginations")
 const {
 	InvalidCustomerRutException,
 	TheRutExistException,
@@ -14,7 +15,7 @@ class CustomerService {
 		customerHttpService,
 		paymentHttpService,
 		customerRepository,
-		siiClientService,
+		siiClientService
 	}) {
 		this.customerHttpService = customerHttpService
 		this.customerRepository = customerRepository
@@ -114,9 +115,19 @@ class CustomerService {
 
 	async getAll(filter, page, status) {
 		// Get All
-		const resp = await this.customerHttpService.getAll(filter, page, status)
-		return resp
-	}
+		// const resp = await this.customerHttpService.getAll(filter, page, status)
+		// return resp
+		let resp = await this.customerRepository.readAll(filter, status)
+		console.log(resp)
+
+		return {
+			data: resp.slice(
+				(page - 1) * 10,
+				page * 10 > resp.length ? page * 10 : resp.length
+			),
+			...transformPaginations(resp.length, page)
+		}
+	} 
 
 	async get(input) {
 		// Get Customer Details
