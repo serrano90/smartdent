@@ -7,7 +7,9 @@ const {transformPaginations} = require("../infrastructure/utils/paginations")
 const {
 	InvalidCustomerRutException,
 	TheRutExistException,
-	DoesNotExistCustomerException
+	DoesNotPossibleDeleteThisCustomerException,
+	DoesNotExistCustomerException,
+	SubscriptionActiveException
 } = require("../infrastructure/error")
 
 class CustomerService {
@@ -127,11 +129,11 @@ class CustomerService {
 			),
 			...transformPaginations(resp.length, page)
 		}
-	} 
+	}
 
-	async get(input) {
+	async get(id) {
 		// Get Customer Details
-		const resp = await this.customerRepository.readById(input.id)
+		const resp = await this.customerRepository.readById(id)
 		return resp
 	}
 
@@ -181,6 +183,51 @@ class CustomerService {
 		)
 
 		return resp
+	}
+
+	/**
+	 * Delete a customer if this doesn't have a active subscription
+	 */
+	async delete(id) {
+		let customer = null
+		try {
+			customer = await this.get(id)
+		} catch (err) {
+			throw new DoesNotExistCustomerException(
+				"No existe ningun cliente con el Id identificado"
+			)
+		}
+
+		const dNow = new Date()
+		if (
+			(customer.subscription !== null &&
+				customer.subscription.subscriptionEnd === null) ||
+			(customer.subscription.subscriptionEnd !== null &&
+				new Date(
+					customer.subscription.subscriptionEnd.split(" ")[0]
+				).getTime() > dNow.getTime())
+		) {
+			throw new SubscriptionActiveException(
+				"El cliente tiene una subscripción activa"
+			)
+		}
+
+		let isDeleted = await this.customerHttpService.delete(
+			customer.flowCustomerId
+		)
+		if (!isDeleted) {
+			throw new DoesNotPossibleDeleteThisCustomerException(
+				"Does not possible delete a customer"
+			)
+		}
+
+		// Update customer data
+		customer = Customer.update(customer, {
+			status: {$set: false}
+		})
+
+		//Database update
+		await this.customerRepository.update(customer)
 	}
 }
 

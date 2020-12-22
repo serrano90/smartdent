@@ -19,7 +19,7 @@ const CustomerListItem = ({
 	onClickRow
 }) => {
 	const initialLetter = fullName.charAt(0).toUpperCase()
-	console.log(data)
+
 	return (
 		<tr onClick={onClickRow} role="button">
 			<td>

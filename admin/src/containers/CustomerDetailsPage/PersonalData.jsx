@@ -27,10 +27,6 @@ const PersonalData = ({id, isAdmin, personalData}) => {
 		setSubmitting(false)
 	}
 
-	async function handleDeleteUser() {
-		
-	}
-
 	return (
 		<>
 			<div className="card border-light shadow-sm p-3 pb-4 mb-4">
@@ -196,14 +192,6 @@ const PersonalData = ({id, isAdmin, personalData}) => {
 														type="info"
 														isLoading={isSubmitting}
 														disabled={!isValid || isSubmitting}
-														marginRight={2}
-													/>
-													<SpinnerButton
-														title="Eliminar"
-														type="danger"
-														isLoading={isSubmitting}
-														disabled={isSubmitting}
-														onClick={handleDeleteUser}
 													/>
 												</div>
 											</>

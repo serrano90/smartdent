@@ -43,6 +43,13 @@ class DoesNotExistCustomerException extends AppError{
     }
 }
 
+class DoesNotPossibleDeleteThisCustomerException extends AppError {
+    constructor(message) {
+        super("DoesNotPossibleDeleteThisCustomerException", "DoesNotPossibleDeleteThisCustomerException", message)
+        Error.captureStackTrace(this, DoesNotPossibleDeleteThisCustomerException)
+    }
+}
+
 class DoesNotPossibleSendEmailException extends AppError{
     constructor(message) {
         super("DoesNotPossibleSendEmailException", "DoesNotPossibleSendEmailException", message)
@@ -78,6 +85,13 @@ class InvoiceDoesNotPossibleChangerMailIsSendException extends AppError {
     }
 }
 
+class SubscriptionActiveException extends AppError {
+    constructor(message) {
+        super("SubscriptionActiveException", "SubscriptionActiveException", message)
+        Error.captureStackTrace(this, SubscriptionActiveException)
+    }
+}
+
 class InternalServerErrorException extends AppError {
     constructor() {
         super("InternalServerErrorException", "InternalServerErrorException", "Internal Server Error")
@@ -90,10 +104,12 @@ module.exports = {
     InvalidCustomerRutException,
     TheRutExistException,
     DoesNotExistCustomerException,
+    DoesNotPossibleDeleteThisCustomerException,
     DoesNotPossibleSendEmailException,
     TheCustomerHaveASubscriptionException,
     TheCustomerDontHaveASubscriptionException,
     InvoiceDoesNotExistException,
     InvoiceDoesNotPossibleChangerMailIsSendException,
+    SubscriptionActiveException,
     InternalServerErrorException
 }

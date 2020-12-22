@@ -21,6 +21,9 @@ const resources = {
         UPDATE_CUSTOMER: {
             PATH: "v1/customers"
         },
+        DELETE_CUSTOMER: {
+            PATH: "v1/customers"
+        }
     },
     INVOICES: {
         CUSTOMER_INVOICE: {
