@@ -162,7 +162,7 @@ const SubscriptionData = ({
 								/>
 								<div className="col-12 d-flex justify-content-end mt-3">
 									<SpinnerButton
-										title="Update"
+										title="Actualizar"
 										type="success"
 										isLoading={isSubmitting}
 										disabled={isSubmitting}

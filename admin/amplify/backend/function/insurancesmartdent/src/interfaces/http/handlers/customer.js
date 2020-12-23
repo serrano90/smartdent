@@ -8,10 +8,12 @@ const invoiceService = container.resolve("invoiceService")
 const {
 	InvalidCustomerRutException,
 	DoesNotExistCustomerException,
+	DoesNotPossibleDeleteThisCustomerException,
 	TheCustomerDontHaveASubscriptionException,
 	InvoiceDoesNotPossibleChangerMailIsSendException,
 	InvoiceDoesNotExistException,
-	TheRutExistException
+	TheRutExistException,
+	SubscriptionActiveException
 } = require("../../../infrastructure/error")
 
 const router = Router()
@@ -88,9 +90,7 @@ router.get("/", function (req, res) {
 router.get("/:id", function (req, res) {
 	console.log("Call function get customers details")
 	customerService
-		.get({
-			id: req.params.id
-		})
+		.get(req.params.id)
 		.then((data) => {
 			res.status(200).json(data)
 		})
@@ -184,6 +184,31 @@ router.get("/:id/getAllChargeFailed", function (req, res) {
 		})
 		.catch((error) => {
 			switch (error.constructor) {
+				case DoesNotExistCustomerException:
+					res.status(400)
+					break
+				default:
+					res.status(500)
+					break
+			}
+			res.json({
+				type: error.type,
+				message: error.message
+			})
+		})
+})
+
+router.delete("/:id", function (req, res) {
+	console.log("Call function delete customer")
+	customerService
+		.delete(req.params.id)
+		.then((data) => {
+			res.status(200).json(data)
+		})
+		.catch((error) => {
+			switch (error.constructor) {
+				case DoesNotPossibleDeleteThisCustomerException:
+				case SubscriptionActiveException: 
 				case DoesNotExistCustomerException:
 					res.status(400)
 					break

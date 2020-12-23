@@ -49,4 +49,18 @@ export default class HTTPClient {
 			.then((response) => Promise.resolve(response))
 			.catch((error) => Promise.reject(error))
 	}
+
+	/**
+	 * Delete used for call to resources with verb delete
+	 * 
+	 * @param {*} path
+	 * @param {*} params
+	 * @param {*} optionals
+	 */
+	delete(path, params, {headers} = {}) {
+		return this.service
+			.delete(path, {params, headers})
+			.then((response) => Promise.resolve(response))
+			.catch((error) => Promise.reject(error))
+	}
 }

@@ -98,7 +98,7 @@ const CardRegister = ({id, isAdmin, cardData, customerId, loadData}) => {
 										type: "text",
 										text:
 											cardData !== null
-												? cardData.creditCardType && cardData.creditCardType === "" ? cardData.creditCardType : "No registrada"
+												? cardData.creditCardType && cardData.creditCardType !== "" ? cardData.creditCardType : "No registrada"
 												: "No especificado"
 									}}
 								/>
@@ -108,7 +108,7 @@ const CardRegister = ({id, isAdmin, cardData, customerId, loadData}) => {
 										type: "text",
 										text:
 											cardData !== null
-												? cardData.last4CardDigits && cardData.last4CardDigits === "" ? cardData.last4CardDigits : "No registrada"
+												? cardData.last4CardDigits && cardData.last4CardDigits !== "" ? cardData.last4CardDigits : "No registrada"
 												: "No especificado"
 									}}
 								/>

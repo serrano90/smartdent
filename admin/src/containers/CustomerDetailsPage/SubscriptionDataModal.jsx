@@ -106,7 +106,7 @@ const SubscriptionDataModal = ({createSubscriptionsHandle}) => {
 											>
                                                 <option value="">Seleccione un plan</option>
                                                 {plans.map((item) => {
-                                                    return <option value={item.planId}>{item.name}</option>
+                                                    return <option value={item.planId} key={item.planId}>{item.name}</option>
                                                 })}
                                             </select>
 											{newSubscriptionForm.touched.planId &&

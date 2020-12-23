@@ -51,6 +51,13 @@ export default class CustomerService {
 	}
 
 	/**
+	 * Customer Delete
+	 */
+	deleteCustomer = (id) => {
+		return this.client.delete(resources.CUSTOMER.DELETE_CUSTOMER.PATH+"/"+id)
+	}
+
+	/**
 	 * Get All Payment Intent
 	 */
 	getAllPaymentIntent = (id, page) => {
