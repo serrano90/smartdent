@@ -23,10 +23,16 @@ export const columnsName = [
 		name: "Nombre y Apellidos"
 	},
 	{
+		name: "RUT"
+	},
+	{
 		name: "Estado"
 	},
 	{
-		name: "Tarjeta de Credito"
+		name: "Suscripcion Plan"
+	},
+	{
+		name: "Suscripcion Precio"
 	},
 	{
 		name: "Fecha de Creacion"

@@ -5,6 +5,7 @@ import React from "react"
 import Alert from "components/Alert"
 import NotyfContext from "context/notifyContext"
 import PersonalData from "./PersonalData"
+import PersonDelete from "./PersonDelete"
 import CardRegister from "./CardRegister"
 import SubscriptionData from "./SubscripcionData"
 import CustomerService from "services/api/customer"
@@ -51,6 +52,7 @@ const GeneralData = ({id, isAdmin}) => {
 								isAdmin={isAdmin}
 								personalData={result ? result : null}
 							/>
+							{isAdmin ? <PersonDelete id={id} /> : ""}
 						</div>
 						<div className="col-12 col-lg-6">
 							<CardRegister

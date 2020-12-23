@@ -102,7 +102,7 @@ const CustomerModal = () => {
 										<div className="form-group mb-4">
 											<label>
 												RUT
-												<span class="small text-dark">
+												<span className="small text-dark">
 													{"  "}(Ej. 1111111-1)
 												</span>
 											</label>
@@ -133,7 +133,7 @@ const CustomerModal = () => {
 										<div className="form-group mb-4">
 											<label>
 												Nombre
-												<span class="small text-dark">{"  "}(Ej. Pepe)</span>
+												<span className="small text-dark">{"  "}(Ej. Pepe)</span>
 											</label>
 											<input
 												type="text"
@@ -162,7 +162,7 @@ const CustomerModal = () => {
 										<div className="form-group mb-4">
 											<label>
 												Apellidos
-												<span class="small text-dark">
+												<span className="small text-dark">
 													{"  "}(Ej. Sanchez Perez)
 												</span>
 											</label>
@@ -193,7 +193,7 @@ const CustomerModal = () => {
 										<div className="form-group mb-4">
 											<label>
 												Email
-												<span class="small text-dark">
+												<span className="small text-dark">
 													{"  "}(Ej. ejemplo@example.cl)
 												</span>
 											</label>

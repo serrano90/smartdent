@@ -50,6 +50,30 @@ class CustomerHTTPService {
 	}
 
 	/**
+	 * Delete customer
+	 * 
+	 * @param {*} id
+	 *  
+	 */
+	async delete(id) {
+		const body = {
+			customerId: id
+		}
+
+		try {
+			const resp = await this.flowClient.send("customer/delete", body, "POST")
+			if (resp.status) {
+				return false
+			}
+			
+			return true
+		} catch (error) {
+			console.log(error)
+			return false
+		}
+	}
+
+	/**
 	 * Get all customer
 	 * 
 	 * @param {string} filter 

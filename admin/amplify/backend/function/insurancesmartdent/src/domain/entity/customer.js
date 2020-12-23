@@ -14,7 +14,9 @@ const Customer = t.struct({
 	flowCustomerId: t.maybe(t.String),
 	status: t.maybe(t.Boolean),
 	card: t.maybe(Card),
-	subscription: t.maybe(Subscription)
+	subscription: t.maybe(Subscription),
+	createdAt: t.maybe(t.String),
+	updatedAt: t.maybe(t.String)
 }, "Customer")
 
 //getFullName return a complete name for a customer
