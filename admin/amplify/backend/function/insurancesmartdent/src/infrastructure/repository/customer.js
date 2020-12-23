@@ -49,24 +49,33 @@ class CustomerRepository {
 	 * @param {int} page 
 	 */
 	async readAll(filter, status) {
-		let params = {
-			TableName: this.tableName,
-			Limit: 2000,
+		let filterExpression = "#s = :status"
+		let expressionAttributeValues = {
+			":status": true,
+		}
+		let expressionAttributeNames = {
+			"#s": "status"
 		}
 
 		if (filter && filter != null && filter != "") {
-			params = {
-				...params,
-				KeyConditionExpression: "contains(#name, :filterName) OR contains(#lastName, :filterLastName)",
-				ExpressionAttributeNames: {
-					"#name": "name",
-					"#lastName": "lastName",
-				},
-				ExpressionAttributeValues: {
-					":filterName": filter,
-					":filterLastName": filter
-				}
+			filterExpression += " AND (contains(#name, :filter) OR contains(#lastName, :filter))"
+			expressionAttributeValues = {
+				...expressionAttributeValues,
+				":filter": filter,
 			}
+			expressionAttributeNames = {
+				...expressionAttributeNames,
+				"#name": "name",
+				"#lastName": "lastName",
+			}
+		}
+
+		let params = {
+			TableName: this.tableName,
+			FilterExpression: filterExpression,
+			ExpressionAttributeValues: expressionAttributeValues,
+			ExpressionAttributeNames: expressionAttributeNames,
+			Limit: 1000,
 		}
 
 		try {

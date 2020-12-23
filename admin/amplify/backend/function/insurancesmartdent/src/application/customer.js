@@ -199,17 +199,18 @@ class CustomerService {
 		}
 
 		const dNow = new Date()
-		if (
-			(customer.subscription !== null &&
-				customer.subscription.subscriptionEnd === null) ||
-			(customer.subscription.subscriptionEnd !== null &&
-				new Date(
-					customer.subscription.subscriptionEnd.split(" ")[0]
-				).getTime() > dNow.getTime())
-		) {
-			throw new SubscriptionActiveException(
-				"El cliente tiene una subscripción activa"
-			)
+		if (customer.subscription !== null) {
+			if (
+				customer.subscription.subscriptionEnd === null ||
+				(customer.subscription.subscriptionEnd !== null &&
+					new Date(
+						customer.subscription.subscriptionEnd.split(" ")[0]
+					).getTime() > dNow.getTime())
+			) {
+				throw new SubscriptionActiveException(
+					"El cliente tiene una subscripción activa"
+				)
+			}
 		}
 
 		let isDeleted = await this.customerHttpService.delete(

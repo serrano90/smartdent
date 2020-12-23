@@ -14,7 +14,7 @@ function transformPaginations(total, page) {
         currentPage: currentPage,
         nextPage: total === 0 ? 0 : page * itemByPage < total ? currentPage + 1 : null,
         previousPage: total === 0 ? 0 : currentPage !== 1 ? currentPage - 1 : null,
-        initialValue: total > 0 ? (currentPage - 1) * itemByPage + 1 : 1,
+        initialValue: total > 0 ? (currentPage - 1) * itemByPage + 1 : 0,
         finishValue: currentPage * itemByPage > total ? total : currentPage * itemByPage,
     }
 }
