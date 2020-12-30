@@ -126,18 +126,19 @@ class CustomerRepository {
 	async readByRut(rut) {
 		let params = {
 			TableName: this.tableName,
-			IndexName: "rut",
-			KeyConditionExpression: "#rut = :rut",
+			FilterExpression: "#rut = :rut AND #status = :status",
 			ExpressionAttributeNames: {
-				"#rut": "rut"
+				"#rut": "rut",
+				"#status": "status"
 			},
 			ExpressionAttributeValues: {
-				":rut": rut
+				":rut": rut,
+				":status": true
 			}
 		}
 
 		try {
-			let result = await this.dynamoDBClient.query(params).promise()
+			let result = await this.dynamoDBClient.scan(params).promise()
 			if (result.Count === 0) {
 				return null
 			}
